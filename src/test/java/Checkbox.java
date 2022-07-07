@@ -35,21 +35,22 @@ public class Checkbox {
         driver.quit();
     }
      @Test
-        public void selectCheckBoxTest () {
+        public void selectCheckBoxTest () throws InterruptedException {
 
 
-         WebElement CheckBoxAB = driver.findElement(By.cssSelector("[type=checkbox]"));
+         WebElement CheckBoxA = driver.findElement(By.cssSelector("[type=checkbox]:nth-child(1)"));
+
+         System.out.println("Chekbox1"+CheckBoxA.isSelected());
+         Assert.assertFalse(driver.findElement(By.cssSelector("[type=checkbox]:nth-child(1)")).isSelected());
+         CheckBoxA.click();
+         Assert.assertTrue(driver.findElement(By.cssSelector("[type=checkbox]:nth-child(1)")).isSelected());
 
 
-         List<WebElement> CheckBox = driver.findElements(By.cssSelector("[type=checkbox]"));
-         CheckBox.get(0).isSelected();
-         CheckBox.get(1).isSelected();
-
-
-        //WebElement CheckBoxA = driver.findElement(By.cssSelector(""));
-
-        Assert.assertFalse(driver.findElement(By.cssSelector("[type=checkbox]")).isSelected());
-
+         WebElement CheckBoxB = driver.findElement(By.cssSelector("[type=checkbox]:nth-child(3)"));
+         System.out.println("Chekbox2"+CheckBoxB.isSelected());
+         Assert.assertTrue(driver.findElement(By.cssSelector("[type=checkbox]:nth-child(3)")).isSelected());
+         CheckBoxB.click();
+         Assert.assertFalse(driver.findElement(By.cssSelector("[type=checkbox]:nth-child(3)")).isSelected());
 
 
 
