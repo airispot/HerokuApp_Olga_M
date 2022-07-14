@@ -46,11 +46,7 @@ public class Checkbox {
          CheckBox.get(1).isSelected();
 
 
-        //WebElement CheckBoxA = driver.findElement(By.cssSelector(""));
-
         Assert.assertFalse(driver.findElement(By.cssSelector("[type=checkbox]")).isSelected());
-
-
 
 
         softAssert.assertAll();
