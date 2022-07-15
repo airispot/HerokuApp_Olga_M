@@ -15,21 +15,36 @@ public class Loadings extends BaseTest {
         @Test
           public void SecondLoadingTest (){
 
-
-        WebElement AcheckBox = driver.findElement(By.id("checkbox"));
+        WebElement AcheckBox = driver.findElement(By.cssSelector("#checkbox > input[type=checkbox]"));
         AcheckBox.isSelected();
-        Assert.assertTrue(driver.findElement(By.id("checkbox")).isSelected());
+        Assert.assertFalse(driver.findElement(By.cssSelector("#checkbox > input[type=checkbox]")).isSelected());
 
-        WebElement AddButton=driver.findElement(By.cssSelector("[type=button]"));
+        WebElement AddButton=driver.findElement(By.cssSelector("#checkbox-example > button"));
         AddButton.click();
 
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div#loading")));
 
-        // wait.until(ExpectedConditions.stalenessOf(final WebElement AcheckBox);
+
         String actualText=AddButton.getText();
-        Assert.assertEquals(actualText,"It's gone!");
+        Assert.assertEquals(actualText,"Add");
 
         }
-};
-         //    @Test
-   //          public void LoadingEnable (){};
+
+             @Test
+         public void LoadingEnable (){
+
+                 WebElement TextEnable = driver.findElement(By.cssSelector("#input-example > input[type=text]"));
+                 TextEnable.isDisplayed();
+
+                  WebElement ButtonEnable = driver.findElement(By.cssSelector("#input-example > button"));
+                  ButtonEnable.click();
+
+                wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div#loading")));
+                     String actualText=ButtonEnable.getText();
+                     Assert.assertEquals(actualText,"Disable");
+
+
+        }
+
+
+}
