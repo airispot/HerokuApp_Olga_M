@@ -24,6 +24,7 @@ public class BaseTest {
         wait = new WebDriverWait(driver,10);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
     }
     @AfterClass
     public void tearDown() {

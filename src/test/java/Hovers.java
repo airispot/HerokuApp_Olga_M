@@ -14,6 +14,8 @@ public class Hovers extends BaseTest{
 
     @Test
     public void HoversTest () throws InterruptedException {
+
+
         List<WebElement> allAvatars = driver.findElements(By.cssSelector(".figure"));
         Actions actions = new Actions(driver);
         for (WebElement avatar:allAvatars)

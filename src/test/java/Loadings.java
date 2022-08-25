@@ -17,6 +17,7 @@ public class Loadings extends BaseTest {
 
         WebElement AcheckBox = driver.findElement(By.cssSelector("#checkbox > input[type=checkbox]"));
         AcheckBox.isSelected();
+
         Assert.assertFalse(driver.findElement(By.cssSelector("#checkbox > input[type=checkbox]")).isSelected());
 
         WebElement AddButton=driver.findElement(By.cssSelector("#checkbox-example > button"));
